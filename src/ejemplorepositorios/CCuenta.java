@@ -11,62 +11,6 @@ package ejemplorepositorios;
  * @author 
  */
 public class CCuenta {
-
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
-    }
-
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    /**
-     * @return the cuenta
-     */
-    public String getCuenta() {
-        return cuenta;
-    }
-
-    /**
-     * @param cuenta the cuenta to set
-     */
-    public void setCuenta(String cuenta) {
-        this.cuenta = cuenta;
-    }
-
-    /**
-     * @return the saldo
-     */
-    public int getSaldo() {
-        return saldo;
-    }
-
-    /**
-     * @param saldo the saldo to set
-     */
-    public void setSaldo(int saldo) {
-        this.saldo = saldo;
-    }
-
-    /**
-     * @return the tipoInteres
-     */
-    public double getTipoInteres() {
-        return tipoInteres;
-    }
-
-    /**
-     * @param tipoInteres the tipoInteres to set
-     */
-    public void setTipoInteres(double tipoInteres) {
-        this.tipoInteres = tipoInteres;
-    }
     /**
      * nombre = el nombre de la cuenta bancaria
      */
@@ -102,7 +46,7 @@ public class CCuenta {
      */
      public int estado ()
     {
-        return getSaldo();
+        return saldo;
     }
 
     /** Método para ingresar cantidades en la cuenta. Modifica el saldo.
@@ -116,7 +60,7 @@ public class CCuenta {
 
     public void ingresar(int cantidad) 
     {
-        setSaldo(getSaldo() + cantidad);
+        saldo = saldo + cantidad;
     }
     
     // Devuelve verdadero si el saldo es menor que 0, falso en caso contrario
@@ -127,7 +71,7 @@ public class CCuenta {
      */
     public boolean comprobarnumerosrojos()
     { 
-        if(getSaldo()<0)
+        if(saldo<0)
         return true;
         else return false;
     }
@@ -141,7 +85,7 @@ public class CCuenta {
     public String dimeinfo()
       {
          String aux;
-         aux = "El nombre del usuario es "+getNombre()+" y su cuenta es: "+getCuenta();
+         aux = "El nombre del usuario es "+nombre+" y su cuenta es: "+cuenta;
          return aux;
       }
 
@@ -159,10 +103,10 @@ public class CCuenta {
         if (cantidad <= 0)
             System.out.println("No se puede retirar una cantidad negativa");
         else if (estado()< cantidad){
-            setSaldo(-1);
+            saldo = -1;
             System.out.println("No hay suficiente saldo");}
         else{
-            setSaldo(getSaldo() - cantidad);}
+            saldo = saldo - cantidad;}
     }
 
 
